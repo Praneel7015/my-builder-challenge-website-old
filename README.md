@@ -4,7 +4,7 @@ A beginner-friendly website template for [AWS Builder Challenge #2](https://buil
 
 ## Download Files 📥
 
-1. **Go to the GitHub page**: https://github.com/anacunha/aws-builder-challenge-personal-website
+1. **Go to the GitHub page**: [https://github.com/praneel/aws-builder-challenge-personal-website-old](https://github.com/Praneel7015/my-builder-challenge-website-old)
 
 2. **Download as ZIP**:
    - Click the green **"Code"** button
@@ -29,7 +29,7 @@ A beginner-friendly website template for [AWS Builder Challenge #2](https://buil
    - Get your profile at: [https://community.aws/builderid](https://community.aws/builderid?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el)
 
 3. **Add your photo** 📸:
-   - Replace `profile-photo.svg` with your photo
+   - Replace `profile.ico` with your photo
    - Name your photo file `profile-photo.jpg` or `profile-photo.png`
    - Or update the filename in `index.html`
 
@@ -49,3 +49,4 @@ A beginner-friendly website template for [AWS Builder Challenge #2](https://buil
 
 - Check the Day 3 guide for AWS setup
 - Comment on the [AWS Builder Challenge #2](https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el) page for support
+
