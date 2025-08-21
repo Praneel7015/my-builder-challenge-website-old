@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praneel - Personal Website</title>
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Initialize theme early to avoid flash of incorrect theme
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = saved || (prefersDark ? 'dark' : 'light');
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) { /* noop */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    <main>
+        <section class="hero">
+            <img src="profile.ico" alt="Praneel" class="profile-photo">
+            <h1>Praneel</h1>
+            <p class="tagline">Cloud Builder & AWS Enthusiast</p>
+            <a href="https://builder.aws.com/community/@praneel" target="_blank" class="aws-link">AWS Builder Center Profile</a>
+        </section>
+
+        <section class="fun-facts">
+            <h3>Fun Facts About Me</h3>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h4>🚀 Challenge In Progress</h4>
+                    <p>Currently working on <a href="https://builder.aws.com/content/31WVAaZfhzKOqUjmfAbHfVcQs7n/global-distribution-making-your-website-accessible-worldwide" target="_blank"> DAY 3 of "AWS Builder Challenge #2: Build a website on the cloud!"</a></p>
+                </div>
+                <div class="fact-card">
+                    <h4>🎯 Learning Goal</h4>
+                    <p>Building my skills one AWS service at a time - S3, CloudFront, and beyond!</p>
+                </div>
+                <div class="fact-card">
+                    <h4>💡 Fun Project</h4>
+                    <p>This website is hosted on Amazon S3 with CloudFront for global delivery!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="aws-journey">
+            <h3>AWS Builder Challenge #2</h3>
+            <p>I'm currently working on the "Build a website on the cloud" challenge, learning to deploy websites using AWS S3 and CloudFront. This site is part of my challenge progress!</p>
+            <a href="https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el" target="_blank" class="cta-button">View Challenge Details</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Praneel. Built with ❤️ on AWS</p>
+    </footer>
+    <script>
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+
+            function currentTheme() {
+                return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            }
+
+            function updateButton() {
+                var isDark = currentTheme() === 'dark';
+                btn.setAttribute('aria-pressed', String(isDark));
+                btn.textContent = isDark ? '☀️' : '🌙';
+                btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+                btn.setAttribute('aria-label', btn.title);
+            }
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                try { localStorage.setItem('theme', theme); } catch (e) {}
+                updateButton();
+            }
+
+            btn.addEventListener('click', function () {
+                setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+            });
+
+            // Sync with system changes if user hasn't explicitly chosen
+            try {
+                var saved = localStorage.getItem('theme');
+                if (!saved && window.matchMedia) {
+                    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+                    mq.addEventListener ? mq.addEventListener('change', function (e) {
+                        setTheme(e.matches ? 'dark' : 'light');
+                    }) : mq.addListener && mq.addListener(function (e) {
+                        setTheme(e.matches ? 'dark' : 'light');
+                    });
+                }
+            } catch (e) {}
+
+            updateButton();
+        })();
+    </script>
+</body>
+</html>
